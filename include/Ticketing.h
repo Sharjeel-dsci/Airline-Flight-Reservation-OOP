@@ -94,7 +94,7 @@ public:
         return newTicket;
     }
 
-    // Search ticket by ID
+    // Searching by id
     Ticket* findTicket(const string& tID) {
         for (auto& t : tickets) {
             if (t.getTicketID() == tID) {
@@ -115,7 +115,7 @@ public:
         return false;
     }
 
-    // Display all issued tickets
+
     void displayAllTickets() const {
         if (tickets.empty()) {
             cout << "\nNo tickets issued yet.\n";
@@ -126,7 +126,7 @@ public:
         }
     }
 
-    // File Handling: Save all tickets to data/tickets.txt
+
     void saveTicketsToFile() const {
         ofstream outFile(dataFilePath);
         if (!outFile.is_open()) return;
@@ -137,7 +137,7 @@ public:
         outFile.close();
     }
 
-    // File Handling: Load existing tickets on startup
+
     void loadTicketsFromFile() {
         ifstream inFile(dataFilePath);
         if (!inFile.is_open()) return;
@@ -162,6 +162,20 @@ public:
             }
         }
         inFile.close();
+    }
+};
+
+class Ticketing {
+public:
+    static void generateBoardingPass(const string& resID, const string& pName,
+                                     const string& fNum, const string& origin,
+                                     const string& destination, const string& depTime,
+                                     const string& seatNo, const string& seatClass,
+                                     double finalFare) {
+        TicketingManager manager;
+        Ticket t = manager.issueTicket(resID, pName, fNum, seatNo, seatClass, finalFare);
+        cout << " Route          : " << origin << " -> " << destination << " (" << depTime << ")\n";
+        t.displayTicket();
     }
 };
 
