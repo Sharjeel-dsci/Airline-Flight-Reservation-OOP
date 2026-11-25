@@ -58,6 +58,7 @@ public:
     void setAvailableSeats(int seats) { availableSeats = (seats >= 0) ? seats : 0; }
     void allocateSeat() { if (availableSeats > 0) availableSeats--; }
 
+
     void displaySchedule() const {
         cout << "Flight: " << flightNumber << " | " << origin << " -> " << destination
              << " | Departure: " << departureTime << " | Available Seats: " << availableSeats << endl;
