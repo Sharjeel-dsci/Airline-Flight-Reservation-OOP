@@ -30,7 +30,6 @@ public:
     double calculateTotalFare() const {
         return baseFare + (baseFare * taxPercent / 100.0);
     }
-
     void displayFare() const {
         cout << "Cabin Class: " << cabinClass << " | Base Fare: PKR " << baseFare
              << " | Tax: " << taxPercent << "% | Total Fare: PKR " << calculateTotalFare() << endl;
