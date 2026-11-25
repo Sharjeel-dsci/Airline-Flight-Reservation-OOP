@@ -22,7 +22,6 @@ public:
     LoyaltyAccount(string id, string name, int pts) : memberID(id), memberName(name), points(0), tier("Silver") {
         addPoints(pts);
     }
-
     // Getters
     string getMemberID() const { return memberID; }
     string getMemberName() const { return memberName; }
